@@ -1,16 +1,242 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Bharatha Simha Reddy - Portfolio</title>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
-  <!-- Styles and script are embedded for simplicity -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #ffffff;
+      --text: #1e293b;
+      --accent: #6366f1;
+      --secondary: #f9fafb;
+      --hover: #e11d48;
+      --card: #f3f4f6;
+      --footer: #e5e7eb;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    header {
+      background: linear-gradient(135deg, var(--secondary), var(--bg));
+      text-align: center;
+      padding: 3rem 2rem;
+      position: relative;
+    }
+
+    .theme-toggle {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      background: var(--accent);
+      color: white;
+      border: none;
+      padding: 0.5rem 1rem;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    .typing-text {
+      color: var(--accent);
+      font-size: 1.2rem;
+      border-right: 2px solid var(--accent);
+      display: inline-block;
+      animation: blink 0.7s infinite;
+    }
+
+    @keyframes blink {
+      0%, 100% { border-color: transparent; }
+      50% { border-color: var(--accent); }
+    }
+
+    nav {
+      margin-top: 1rem;
+    }
+
+    nav a {
+      margin: 0 1rem;
+      text-decoration: none;
+      color: var(--accent);
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      color: var(--hover);
+    }
+
+    section {
+      max-width: 1000px;
+      margin: 2rem auto;
+      padding: 2rem;
+      background: var(--secondary);
+      border-radius: 10px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 1s ease, transform 1s ease;
+    }
+
+    section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    h2 {
+      color: var(--accent);
+      border-bottom: 2px solid var(--accent);
+      padding-bottom: 0.5rem;
+      margin-bottom: 1rem;
+    }
+
+    ul li {
+      margin: 0.5rem 0;
+    }
+
+    .project {
+      background: var(--card);
+      padding: 1rem;
+      border-left: 5px solid var(--accent);
+      margin: 1rem 0;
+      border-radius: 5px;
+      transition: all 0.3s ease;
+    }
+
+    .project:hover {
+      background: var(--hover);
+      color: #fff;
+      transform: scale(1.03);
+    }
+
+    .icon-emoji {
+      display: inline-block;
+      animation: bounce 2s infinite;
+    }
+
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-8px); }
+    }
+
+    footer {
+      text-align: center;
+      padding: 1.5rem;
+      background: var(--footer);
+      color: var(--text);
+    }
+  </style>
 </head>
 <body>
-  <!-- Content will be dynamically inserted -->
+  <button class="theme-toggle" onclick="toggleTheme()">Switch Theme</button>
+  <header>
+    <h1>T Bharatha Simha Reddy</h1>
+    <div class="typing-text" id="typing"></div>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#projects">Projects</a>
+      <a href="#resume">Resume</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <section id="about">
+    <h2>About Me</h2>
+    <p>
+      I am a dedicated and growth-oriented student currently pursuing a B.Tech in Computer Science Engineering with a specialization in Artificial Intelligence at Parul University. My goal is to become a proficient data scientist, contributing to impactful projects that harness the power of data for real-world solutions.
+    </p>
+    <ul>
+      <li><strong>Education:</strong> B.Tech (AI) – CGPA: 7.29</li>
+      <li><strong>Intermediate:</strong> 91.9%</li>
+      <li><strong>Skills:</strong> Python, SQL, DSA, Machine Learning, Deep Learning</li>
+    </ul>
+  </section>
+
+  <section id="projects">
+    <h2>Projects</h2>
+    <div class="project" data-category="ml">
+      <h3><span class="icon-emoji">🎵</span> Emotion-Based Media Recommendation</h3>
+      <p>
+        Detects user emotions from facial expressions to recommend music/movies using machine learning and sentiment analysis.
+      </p>
+    </div>
+    <div class="project" data-category="python">
+      <h3><span class="icon-emoji">🐍</span> Snake Game</h3>
+      <p>
+        Classic snake game using Python & Pygame with dynamic controls, collision detection, and sound effects.
+      </p>
+    </div>
+  </section>
+
+  <section id="resume">
+    <h2>Resume</h2>
+    <p>Download my resume:</p>
+    <a href="Bharath_ds.pdf" download>📄 Bharatha_Simha_Reddy_Resume.pdf</a>
+  </section>
+
+  <section id="contact">
+    <h2>Contact</h2>
+    <p><strong>Email:</strong> <a href="mailto:bharathasimhareddy2340@gmail.com">bharathasimhareddy2340@gmail.com</a></p>
+    <p><strong>GitHub:</strong> <a href="https://github.com/Bharatha234">github.com/Bharatha234</a></p>
+    <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/t-bharatha-simha-reddy">linkedin.com/in/t-bharatha-simha-reddy</a></p>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 T Bharatha Simha Reddy. Crafted with code and creativity.</p>
+  </footer>
+
   <script>
-    // JS handled inline for simplicity
+    // Typing effect
+    const roles = ["Data Enthusiast", "Machine Learning Engineer", "Python Developer"];
+    let i = 0, j = 0, forward = true;
+    const el = document.getElementById("typing");
+
+    function typingEffect() {
+      if (forward) {
+        el.textContent = roles[i].slice(0, ++j);
+        if (j === roles[i].length) forward = false;
+      } else {
+        el.textContent = roles[i].slice(0, --j);
+        if (j === 0) {
+          i = (i + 1) % roles.length;
+          forward = true;
+        }
+      }
+      setTimeout(typingEffect, forward ? 150 : 100);
+    }
+    typingEffect();
+
+    // Theme toggle
+    function toggleTheme() {
+      const current = document.documentElement.getAttribute("data-theme");
+      const next = current === "light" ? "dark" : "light";
+      document.documentElement.setAttribute("data-theme", next);
+    }
+
+    // Scroll animation
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll("section").forEach(section => {
+      observer.observe(section);
+    });
   </script>
 </body>
 </html>
